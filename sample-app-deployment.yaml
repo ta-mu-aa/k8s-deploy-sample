@@ -22,8 +22,8 @@ spec:
         name: fastapi-sample
         envFrom:
           - configMapRef:
-            name: sample-app
+              name: sample-app
           - secretRef:
-            name: sample-app
+              name: sample-app
         resources: {}
 status: {}
