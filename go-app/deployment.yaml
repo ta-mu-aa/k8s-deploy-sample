@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-sample
+  labels:
+    app: go-sample
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: go-sample
+  template:
+    metadata:
+      labels:
+        app: go-sample
+    spec:
+      containers:
+        - name: go-sample
+          # ローカルで作成したイメージを使用
+          image: go-sample-image
+          # ローカルのイメージを使用するため、imagePullPolicyをIfNotPresentに設定
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
